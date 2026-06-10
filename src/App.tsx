@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { StartScreen } from "./screens/StartScreen";
 import "./App.css";
 
 const lilyPrice = 10;
@@ -10,10 +11,12 @@ const intervalFactor = 0.8;
 const minInterval = 5000;
 
 function App() {
+  const [gameStarted, setGameStarted] = useState<boolean>(false);
   const [flies, setFlies] = useState<number>(0);
   const [isCatching, setIsCatching] = useState<boolean>(false);
   const [lilypads, setLilypads] = useState<number>(0);
 
+  // с какой скоростью начисляются мухи
   const fliesPerDrip = 1;
 
   const dripInterval = Math.max(
@@ -26,11 +29,11 @@ function App() {
   useEffect(() => {
     if (lilypads === 0) return;
 
-    const intervalID = setInterval(() => {
+    const intervalId = setInterval(() => {
       setFlies((prev) => prev + fliesPerDrip);
     }, dripInterval);
 
-    return () => clearInterval(intervalID);
+    return () => clearInterval(intervalId);
   }, [lilypads, dripInterval, fliesPerDrip]);
 
   const handleClick = () => {
@@ -42,6 +45,7 @@ function App() {
     }, 100);
   };
 
+  // покупка кувшинки
   const buyLily = () => {
     if (lilypads >= liliesMax)
       alert("Достигнуто максимальное количество кувшинок!");
@@ -49,6 +53,11 @@ function App() {
     setFlies((prev) => prev - nextLilyPrice);
     setLilypads((prev) => prev + 1);
   };
+
+  // стартовый экран
+  if (gameStarted === false) {
+    return <StartScreen onStart={() => setGameStarted(true)} />;
+  }
 
   return (
     <div>

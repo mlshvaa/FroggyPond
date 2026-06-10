@@ -1,0 +1,6 @@
+.start-screen {
+  width: 100vw;
+  height: 100vh;
+  cursor: pointer;
+  background-image: url(../assets/images/backgrounds/start_screen.PNG);
+}
