@@ -1,0 +1,63 @@
+.game-screen {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../assets/images/backgrounds/main_background_day.PNG);
+}
+
+.game-icons {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+.flies {
+  position: relative;
+  display: inline-block;
+}
+
+.fly-counter-plate {
+  width: 220px;
+  height: 65px;
+  display: block;
+}
+
+.fly-counter {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 40px;
+  color: rgb(34, 34, 34);
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.shop {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.shop p {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 44px;
+  color: rgb(255, 194, 52);
+  text-shadow:
+    -2px -2px 0 #1d1d1d,
+    2px -2px 0 #1d1d1d,
+    -2px 2px 0 #1d1d1d,
+    2px 2px 0 #1d1d1d;
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.shop-icon {
+  width: 180px;
+  height: 190px;
+  display: block;
+}

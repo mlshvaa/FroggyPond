@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import shopIcon from "../assets/images/objects/shop_icon.png";
+import flyCounterPlate from "../assets/images/objects/fly_counter_plate.png";
 import "./GameScreen.css";
 
 const lilyPrice = 10;
@@ -58,9 +60,21 @@ export function GameScreen() {
   };
 
   return (
-    <div>
-      <h1>Froggy Pond</h1>
-      <p>Мухи: {flies}</p>
+    <div className="game-screen">
+      <div className="game-icons">
+        <div className="flies">
+          <img
+            src={flyCounterPlate}
+            alt="табличка с подсчётом мух"
+            className="fly-counter-plate"
+          />
+          <p className="fly-counter">{flies}</p>
+        </div>
+        <div className="shop">
+          <img src={shopIcon} alt="иконка магазина" className="shop-icon" />
+          <p>Shop</p>
+        </div>
+      </div>
       <button onClick={handleClick}>Поймать муху</button>
 
       {lilypads < liliesMax ? (
