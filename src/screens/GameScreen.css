@@ -23,12 +23,6 @@
   display: block;
 }
 
-.fish-counter-plate {
-  width: 220px;
-  height: 65px;
-  display: block;
-}
-
 .fly-counter {
   font-family: "Pixelify Sans", sans-serif;
   font-size: 40px;
@@ -36,6 +30,23 @@
   position: absolute;
   top: 50%;
   left: 52%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+.fish-counter-plate {
+  width: 220px;
+  height: 65px;
+  display: block;
+}
+
+.fish-counter {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 40px;
+  color: rgb(34, 34, 34);
+  position: absolute;
+  top: 15.4%;
+  left: 8.25%;
   transform: translate(-50%, -50%);
   margin: 0;
 }
@@ -68,11 +79,20 @@
   display: block;
 }
 
-.blinking-frog-default img {
+.blinking-frog-default {
   width: 350px;
   height: auto;
   position: absolute;
   top: 62%;
   left: 40%;
+  cursor: pointer;
+}
+
+.blinking-frog-lily {
+  width: 580px;
+  height: auto;
+  position: absolute;
+  top: 49%;
+  left: 33%;
   cursor: pointer;
 }

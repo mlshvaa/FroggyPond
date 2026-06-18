@@ -4,11 +4,12 @@ import flyCounterPlate from "../assets/images/objects/fly_counter_plate.png";
 import frogEyesOpen from "../assets/images/objects/default_frog_eyes_open.png";
 import frogEyesClosed from "../assets/images/objects/default_frog_eyes_closed.png";
 import fishCounterPlate from "../assets/images/objects/fish_counter_plate.png";
-// import lilyFrogOpen from "../assets/images/objects/lily_frog_eyes_open.png";
-// import lilyFrogClosed from "../assets/images/objects/lily_frog_eyes_closed.png";
+import lilyFrogOpen from "../assets/images/objects/lily_frog_eyes_open.png";
+import lilyFrogClosed from "../assets/images/objects/lily_frog_eyes_closed.png";
 import "./GameScreen.css";
 
 const blinkImages = [frogEyesOpen, frogEyesClosed];
+const lilyBlinkImages = [lilyFrogOpen, lilyFrogClosed];
 
 const lilyPrice = 10;
 const growthPrice = 1.5;
@@ -39,7 +40,7 @@ export function GameScreen() {
     let timeoutId: ReturnType<typeof setTimeout>;
 
     const nextBlink = () => {
-      const eyesOpen = 1500 + Math.random() * 2500;
+      const eyesOpen = 1800 + Math.random() * 2500;
 
       timeoutId = setTimeout(() => {
         setCurrentImg(1);
@@ -107,18 +108,29 @@ export function GameScreen() {
             alt="табличка с подсчётом рыб"
             className="fish-counter-plate"
           />
+          <p className="fish-counter">0</p>
         </div>
         <div className="shop">
           <img src={shopIcon} alt="иконка магазина" className="shop-icon" />
           <p>Shop</p>
         </div>
       </div>
-      <div className="blinking-frog-default">
-        <img
-          src={blinkImages[currentImg]}
-          alt="анимация моргающей лягушки"
-          onClick={handleClick}
-        />
+      <div className="blinking-frog">
+        {lilypads === 0 ? (
+          <img
+            src={blinkImages[currentImg]}
+            alt="анимация моргающей лягушки"
+            className="blinking-frog-default"
+            onClick={handleClick}
+          />
+        ) : (
+          <img
+            src={lilyBlinkImages[currentImg]}
+            alt="анимация моргающей лягушки на кувшинке"
+            className="blinking-frog-lily"
+            onClick={handleClick}
+          />
+        )}
       </div>
       {lilypads < liliesMax ? (
         <button onClick={buyLily} disabled={flies < nextLilyPrice}>
