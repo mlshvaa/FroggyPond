@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import shopIcon from "../assets/images/objects/shop_icon.png";
 import flyCounterPlate from "../assets/images/objects/fly_counter_plate.png";
+import frogEyesOpen from "../assets/images/objects/default_frog_eyes_open.png";
+import frogEyesClosed from "../assets/images/objects/default_frog_eyes_closed.png";
 import "./GameScreen.css";
+
+const blinkImages = [frogEyesOpen, frogEyesClosed];
 
 const lilyPrice = 10;
 const growthPrice = 1.5;
@@ -15,6 +19,7 @@ export function GameScreen() {
   const [flies, setFlies] = useState<number>(0);
   const [isCatching, setIsCatching] = useState<boolean>(false);
   const [lilypads, setLilypads] = useState<number>(0);
+  const [currentImg, setCurrentImg] = useState<number>(0);
 
   // с какой скоростью начисляются мухи
   const fliesPerDrip = 1;
@@ -25,6 +30,15 @@ export function GameScreen() {
   );
 
   const nextLilyPrice = Math.round(lilyPrice * growthPrice ** lilypads);
+
+  // моргание лягушки
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImg((prev) => (prev === 0 ? 1 : 0));
+    }, 750);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   useEffect(() => {
     if (lilypads === 0) return;
@@ -75,8 +89,13 @@ export function GameScreen() {
           <p>Shop</p>
         </div>
       </div>
-      <button onClick={handleClick}>Поймать муху</button>
-
+      <div className="blinking-frog-default">
+        <img
+          src={blinkImages[currentImg]}
+          alt="анимация моргающей лягушки"
+          onClick={handleClick}
+        />
+      </div>
       {lilypads < liliesMax ? (
         <button onClick={buyLily} disabled={flies < nextLilyPrice}>
           Купить кувшинку ({nextLilyPrice} мух)

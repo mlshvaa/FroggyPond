@@ -61,3 +61,12 @@
   height: 190px;
   display: block;
 }
+
+.blinking-frog-default img {
+    width: 350px;
+    height: auto;
+    position: absolute;
+    top: 62%;
+    left: 40%;
+    cursor: pointer;
+}
