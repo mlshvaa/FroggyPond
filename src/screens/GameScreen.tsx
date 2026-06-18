@@ -3,6 +3,7 @@ import shopIcon from "../assets/images/objects/shop_icon.png";
 import flyCounterPlate from "../assets/images/objects/fly_counter_plate.png";
 import frogEyesOpen from "../assets/images/objects/default_frog_eyes_open.png";
 import frogEyesClosed from "../assets/images/objects/default_frog_eyes_closed.png";
+import fishCounterPlate from "../assets/images/objects/fish_counter_plate.png";
 import "./GameScreen.css";
 
 const blinkImages = [frogEyesOpen, frogEyesClosed];
@@ -97,6 +98,13 @@ export function GameScreen() {
             className="fly-counter-plate"
           />
           <p className="fly-counter">{flies}</p>
+        </div>
+        <div className="fish">
+          <img
+            src={fishCounterPlate}
+            alt="табличка с подсчётом рыб"
+            className="fish-counter-plate"
+          />
         </div>
         <div className="shop">
           <img src={shopIcon} alt="иконка магазина" className="shop-icon" />
