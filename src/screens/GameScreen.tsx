@@ -35,6 +35,15 @@ export function GameScreen() {
 
   const nextLilyPrice = Math.round(lilyPrice * growthPrice ** lilypads);
 
+  // предзагрузка всех картинок лягушки, чтобы лягушка
+  // не "скакала" при покупке кувшинки
+  useEffect(() => {
+    [...blinkImages, ...lilyBlinkImages].forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   // моргание лягушки
   useEffect(() => {
     let timeoutId: ReturnType<typeof setTimeout>;
