@@ -33,13 +33,27 @@ export function GameScreen() {
 
   // моргание лягушки
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImg((prev) => (prev === 0 ? 1 : 0));
-    }, 750);
+    let timeoutId: ReturnType<typeof setTimeout>;
 
-    return () => clearInterval(intervalId);
+    const nextBlink = () => {
+      const eyesOpen = 1500 + Math.random() * 2500;
+
+      timeoutId = setTimeout(() => {
+        setCurrentImg(1);
+
+        timeoutId = setTimeout(() => {
+          setCurrentImg(0);
+          nextBlink();
+        }, 280);
+      }, eyesOpen);
+    };
+
+    nextBlink();
+
+    return () => clearInterval(timeoutId);
   }, []);
 
+  // начисление мух
   useEffect(() => {
     if (lilypads === 0) return;
 
