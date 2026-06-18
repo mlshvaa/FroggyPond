@@ -4,6 +4,8 @@ import flyCounterPlate from "../assets/images/objects/fly_counter_plate.png";
 import frogEyesOpen from "../assets/images/objects/default_frog_eyes_open.png";
 import frogEyesClosed from "../assets/images/objects/default_frog_eyes_closed.png";
 import fishCounterPlate from "../assets/images/objects/fish_counter_plate.png";
+// import lilyFrogOpen from "../assets/images/objects/lily_frog_eyes_open.png";
+// import lilyFrogClosed from "../assets/images/objects/lily_frog_eyes_closed.png";
 import "./GameScreen.css";
 
 const blinkImages = [frogEyesOpen, frogEyesClosed];
