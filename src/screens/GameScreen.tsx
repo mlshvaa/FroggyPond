@@ -77,6 +77,7 @@ export function GameScreen() {
     return () => clearInterval(intervalId);
   }, [lilypads, dripInterval, fliesPerDrip]);
 
+  // ловля мух по клику
   const handleClick = () => {
     if (isCatching) return;
     setIsCatching(true);
