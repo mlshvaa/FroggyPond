@@ -2,6 +2,7 @@
   width: 100vw;
   height: 100vh;
   background-image: url(../assets/images/backgrounds/main_background_day.PNG);
+  position: relative;
 }
 
 .game-icons {
@@ -77,6 +78,42 @@
   width: 180px;
   height: 190px;
   display: block;
+}
+
+.pondMain {
+  display: flex;
+}
+
+.first-empty-lily {
+  width: 250px;
+  height: auto;
+  position: absolute;
+  top: 73%;
+  left: 71%;
+}
+
+.second-empty-lily {
+  width: 150px;
+  height: auto;
+  position: absolute;
+  top: 51%;
+  left: 36%;
+}
+
+.third-empty-lily {
+  width: 210px;
+  height: auto;
+  position: absolute;
+  top: 87%;
+  left: 29%;
+}
+
+.fourth-empty-lily {
+  width: 190px;
+  height: auto;
+  position: absolute;
+  top: 57%;
+  left: 60%;
 }
 
 .blinking-frog-default {

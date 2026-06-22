@@ -6,6 +6,10 @@ import frogEyesClosed from "../assets/images/objects/default_frog_eyes_closed.pn
 import fishCounterPlate from "../assets/images/objects/fish_counter_plate.png";
 import lilyFrogOpen from "../assets/images/objects/lily_frog_eyes_open.png";
 import lilyFrogClosed from "../assets/images/objects/lily_frog_eyes_closed.png";
+import lilyOne from "../assets/images/pond-objects/lily_one.png";
+import lilyTwo from "../assets/images/pond-objects/lily_two.png";
+import lilyThree from "../assets/images/pond-objects/lily_three.png";
+import lilyFour from "../assets/images/pond-objects/lily_four.png";
 import "./GameScreen.css";
 
 const blinkImages = [frogEyesOpen, frogEyesClosed];
@@ -125,22 +129,54 @@ export function GameScreen() {
           <p>Shop</p>
         </div>
       </div>
-      <div className="blinking-frog">
-        {lilypads === 0 ? (
-          <img
-            src={blinkImages[currentImg]}
-            alt="анимация моргающей лягушки"
-            className="blinking-frog-default"
-            onClick={handleClick}
-          />
-        ) : (
-          <img
-            src={lilyBlinkImages[currentImg]}
-            alt="анимация моргающей лягушки на кувшинке"
-            className="blinking-frog-lily"
-            onClick={handleClick}
-          />
-        )}
+      <div className="pondMain">
+        <div className="liliesAll">
+          {lilypads >= 2 && (
+            <img
+              src={lilyOne}
+              alt="первая пустая кувшинка"
+              className="first-empty-lily"
+            />
+          )}
+          {lilypads >= 3 && (
+            <img
+              src={lilyTwo}
+              alt="вторая пустая кувшинка"
+              className="second-empty-lily"
+            />
+          )}
+          {lilypads >= 4 && (
+            <img
+              src={lilyThree}
+              alt="третья пустая кувшинка"
+              className="third-empty-lily"
+            />
+          )}
+          {lilypads >= 5 && (
+            <img
+              src={lilyFour}
+              alt="четвёртая пустая кувшинка"
+              className="fourth-empty-lily"
+            />
+          )}
+        </div>
+        <div className="blinking-frog">
+          {lilypads === 0 ? (
+            <img
+              src={blinkImages[currentImg]}
+              alt="анимация моргающей лягушки"
+              className="blinking-frog-default"
+              onClick={handleClick}
+            />
+          ) : (
+            <img
+              src={lilyBlinkImages[currentImg]}
+              alt="анимация моргающей лягушки на кувшинке"
+              className="blinking-frog-lily"
+              onClick={handleClick}
+            />
+          )}
+        </div>
       </div>
       {lilypads < liliesMax ? (
         <button onClick={buyLily} disabled={flies < nextLilyPrice}>
